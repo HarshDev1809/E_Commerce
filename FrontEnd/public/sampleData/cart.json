@@ -1,0 +1,58 @@
+[
+    {
+        "itemId": 1,
+        "itemName" : "gold women ring",
+        "price" : 100,
+        "sellingPrice" : 80,
+        "quantity" : 2,
+        "photo" : "https://www.candere.com/media/jewellery/images/GR00103__1.jpeg"
+    },
+    {
+        "itemId": 2,
+        "itemName" : "gold men ring",
+        "price" : 150,
+        "sellingPrice" : 100,
+        "quantity" : 3,
+        "photo" : "https://www.candere.com/media/jewellery/images/GR00103__1.jpeg"
+    },
+    {
+        "itemId": 3,
+        "itemName" : "gold women earring",
+        "price" : 100,
+        "sellingPrice" : 100,
+        "quantity" : 1,
+        "photo" : "https://www.candere.com/media/jewellery/images/GR00103__1.jpeg"
+    },
+    {
+        "itemId": 4,
+        "itemName" : "silver women ring",
+        "price" : 100,
+        "sellingPrice" : 80,
+        "quantity" : 2,
+        "photo" : "https://www.candere.com/media/jewellery/images/GR00103__1.jpeg"
+    },
+    {
+        "itemId": 5,
+        "itemName" : "diamond women ring",
+        "price" : 1000,
+        "sellingPrice" : 980,
+        "quantity" : 5,
+        "photo" : "https://www.candere.com/media/jewellery/images/GR00103__1.jpeg"
+    },
+    {
+        "itemId": 6,
+        "itemName" : "AD women ring",
+        "price" : 100,
+        "sellingPrice" : 80,
+        "quantity" : 2,
+        "photo" : "https://www.candere.com/media/jewellery/images/GR00103__1.jpeg"
+    },
+    {
+        "itemId": 7,
+        "itemName" : "gold women eartops",
+        "price" : 100,
+        "sellingPrice" : 80,
+        "quantity" : 2,
+        "photo" : "https://www.candere.com/media/jewellery/images/GR00103__1.jpeg"
+    }
+]

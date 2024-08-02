@@ -1,0 +1,18 @@
+.shopping-bag{
+    width: 30vw;
+}
+
+.shopping-bag .header{
+    height: 10vh;
+    padding: 0 20px;
+}
+
+.shopping-bag .header > div{
+    width: 30%;
+}
+
+.shopping-bag .header > button{
+    height: 4vh;
+    width: 4vh
+}
+
