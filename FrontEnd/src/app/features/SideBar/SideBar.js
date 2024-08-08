@@ -11,6 +11,24 @@ function SideBar() {
   const [maxPrice, setMaxPrice] = useState();
   const [maxSlider, setMaxSlider] = useState(10000);
   const [showCategoryFilter, setShowCategoryFilter] = useState(false);
+  const [isRingChecked, setIsRingChecked] = useState(false);
+  const [isBangleChecked, setIsBangleChecked] = useState(false);
+  const [isEarringsChecked, setIsEarringsChecked] = useState(false);
+  const [isEartopsChecked, setIsEartopsChecked] = useState(false);
+  const [isPendantChecked, setIsPendantChecked] = useState(false);
+  const [isNecklaceChecked, setIsNecklaceChecked] = useState(false);
+
+  const [showMaterialFilter, setshowMaterialFilter] = useState(false);
+  const [isGoldChecked, setIsGoldChecked] = useState(false);
+  const [isSilverChecked, setIsSilverChecked] = useState(false);
+  const [isBronzeChecked, setIsBronzeChecked] = useState(false);
+  const [isMetalChecked, setIsMetalChecked] = useState(false);
+
+  const [showOccasionFilter, setShowOccasionFilter] = useState(false);
+    const [isCasualChecked, setIsCasualChecked] = useState(false);
+    const [isFormalChecked, setIsFormalChecked] = useState(false);
+    const [isDailyWearChecked, setIsDailyWearChecked] = useState(false);
+    const [isWeddingChecked, setIsWeddingChecked] = useState(false);
 
   const [value2, setValue2] = useState([0, 10000]);
 
@@ -57,8 +75,73 @@ function SideBar() {
     setShowPriceFilter(!showPriceFilter);
   };
 
-  const toggleCategoryrFilter = () => {
+  const toggleCategoryFilter = () => {
     setShowCategoryFilter(!showCategoryFilter);
+  };
+
+  const handleIsRingChecked = (e) => {
+    setIsRingChecked(e.target.checked);
+  };
+
+  const handleIsBangleChecked = (e) => {
+    setIsBangleChecked(e.target.checked);
+  };
+
+  const handleIsEarringsChecked = (e) => {
+    setIsEarringsChecked(e.target.checked);
+  };
+
+  const handleIsEartopsChecked = (e) => {
+    setIsEartopsChecked(e.target.checked);
+  };
+
+  const handleIsNecklaceChecked = (e) => {
+    setIsNecklaceChecked(e.target.checked);
+  };
+
+  const handleIsPendantChecked = (e) => {
+    setIsPendantChecked(e.target.checked);
+    console.log(e.target.checked);
+  };
+
+  const toggleMaterialFilter = () => {
+    setshowMaterialFilter(!showMaterialFilter);
+  };
+
+  const handleisGoldChecked = (e) =>{
+    setIsGoldChecked(e.target.checked);
+  }
+
+  const handleisSilverChecked = (e)=>{
+    setIsSilverChecked(e.target.checked)
+  }
+
+  const handleisBronzeChecked = (e)=>{
+    setIsBronzeChecked(e.target.checked);
+  }
+
+  const handleisMetalChecked = (e)=>{
+    setIsMetalChecked(e.target.checked)
+  }
+
+  const handleIsDailyWearChecked = (e) =>{
+    setIsDailyWearChecked(e.target.checked);
+  }
+
+  const handleIsFormalChecked = (e) => {
+    setIsFormalChecked(e.target.checked);
+  }
+
+  const handleIsCasualChecked = (e) => {
+    setIsCasualChecked(e.target.checked);
+  }
+
+  const handleIsWeddingChecked = (e) => {
+    setIsWeddingChecked(e.target.checked);
+  }
+
+  const toggleOccasionFilter = () =>{
+    setShowOccasionFilter(!showOccasionFilter)
   }
 
   return (
@@ -138,20 +221,190 @@ function SideBar() {
           )}
         </li>
         <li className="border-bottom">
-        <button
+          <button
             type="button"
-            onClick={toggleCategoryrFilter}
+            onClick={toggleCategoryFilter}
             className="w-100 side-bar-button d-flex align-items-center justify-content-between p-3"
           >
             Product Category
             <span
               className={`material-symbols-outlined arrow-icon h-100 ${
-                showPriceFilter ? "rotated" : ""
+                showCategoryFilter ? "rotated" : ""
               }`}
             >
               keyboard_arrow_down
             </span>
           </button>
+          {showCategoryFilter && (
+            <div className="category-filter d-flex justify-content-center align-items-start flex-column gap-1 px-3 py-1">
+              <div className="d-flex justify-content-star align-items-center gap-1 w-100">
+                <input
+                  type="checkbox"
+                  id="ring"
+                  checked={isRingChecked}
+                  onChange={handleIsRingChecked}
+                ></input>
+                <label for="ring">ring</label>
+              </div>
+              <div className="d-flex justify-content-star align-items-center gap-1 w-100">
+                <input
+                  type="checkbox"
+                  id="bangle"
+                  checked={isBangleChecked}
+                  onChange={handleIsBangleChecked}
+                ></input>
+                <label for="bangle">Bangle</label>
+              </div>
+              <div className="d-flex justify-content-star align-items-center gap-1 w-100">
+                <input
+                  type="checkbox"
+                  id="necklace"
+                  checked={isNecklaceChecked}
+                  onChange={handleIsNecklaceChecked}
+                ></input>
+                <label for="necklace">Necklace</label>
+              </div>
+              <div className="d-flex justify-content-star align-items-center gap-1 w-100">
+                <input
+                  type="checkbox"
+                  id="eartops"
+                  checked={isEartopsChecked}
+                  onChange={handleIsEartopsChecked}
+                ></input>
+                <label for="eartops">Eartops</label>
+              </div>
+              <div className="d-flex justify-content-star align-items-center gap-1 w-100">
+                <input
+                  type="checkbox"
+                  id="earring"
+                  checked={isEarringsChecked}
+                  onChange={handleIsEarringsChecked}
+                ></input>
+                <label for="earring">Earring</label>
+              </div>
+              <div className="d-flex justify-content-star align-items-center gap-1 w-100">
+                <input
+                  type="checkbox"
+                  id="pendant"
+                  checked={isPendantChecked}
+                  onChange={handleIsPendantChecked}
+                ></input>
+                <label for="pendant">pendant</label>
+              </div>
+            </div>
+          )}
+        </li>
+        <li className="border-bottom">
+          <button
+            type="button"
+            onClick={toggleMaterialFilter}
+            className="w-100 side-bar-button d-flex align-items-center justify-content-between p-3"
+          >
+            Material
+            <span
+              className={`material-symbols-outlined arrow-icon h-100 ${
+                showMaterialFilter ? "rotated" : ""
+              }`}
+            >
+              keyboard_arrow_down
+            </span>
+          </button>
+          {showMaterialFilter && (
+            <div className="material-filter d-flex justify-content-center align-items-start flex-column gap-1 px-3 py-1">
+              <div className="d-flex justify-content-star align-items-center gap-1 w-100">
+                <input
+                  type="checkbox"
+                  id="gold"
+                  checked={isGoldChecked}
+                  onChange={handleisGoldChecked}
+                ></input>
+                <label for="gold-colour">Gold</label>
+              </div>
+              <div className="d-flex justify-content-star align-items-center gap-1 w-100">
+                <input
+                  type="checkbox"
+                  id="silver"
+                  checked={isSilverChecked}
+                  onChange={handleisSilverChecked}
+                ></input>
+                <label for="silver">Silver</label>
+              </div>
+              <div className="d-flex justify-content-star align-items-center gap-1 w-100">
+                <input
+                  type="checkbox"
+                  id="bronze"
+                  checked={isBronzeChecked}
+                  onChange={handleisBronzeChecked}
+                ></input>
+                <label for="bronze">Bronze</label>
+              </div>
+              <div className="d-flex justify-content-star align-items-center gap-1 w-100">
+                <input
+                  type="checkbox"
+                  id="metal"
+                  checked={isMetalChecked}
+                  onChange={handleisMetalChecked}
+                ></input>
+                <label for="metal">Metal</label>
+              </div>
+            </div>
+          )}
+        </li>
+        <li className="border-bottom">
+          <button
+            type="button"
+            onClick={toggleOccasionFilter}
+            className="w-100 side-bar-button d-flex align-items-center justify-content-between p-3"
+          >
+            Occasion
+            <span
+              className={`material-symbols-outlined arrow-icon h-100 ${
+                showOccasionFilter ? "rotated" : ""
+              }`}
+            >
+              keyboard_arrow_down
+            </span>
+          </button>
+          {showOccasionFilter && (
+            <div className="occasion-filter d-flex justify-content-center align-items-start flex-column gap-1 px-3 py-1">
+              <div className="d-flex justify-content-star align-items-center gap-1 w-100">
+                <input
+                  type="checkbox"
+                  id="wedding"
+                  checked={isWeddingChecked}
+                  onChange={handleIsWeddingChecked}
+                ></input>
+                <label for="weddig">Wedding</label>
+              </div>
+              <div className="d-flex justify-content-star align-items-center gap-1 w-100">
+                <input
+                  type="checkbox"
+                  id="formal"
+                  checked={isFormalChecked}
+                  onChange={handleIsFormalChecked}
+                ></input>
+                <label for="formal">Formal</label>
+              </div>
+              <div className="d-flex justify-content-star align-items-center gap-1 w-100">
+                <input
+                  type="checkbox"
+                  id="Casual"
+                  checked={isCasualChecked}
+                  onChange={handleIsCasualChecked}
+                ></input>
+                <label for="casual">Casual</label>
+              </div>
+              <div className="d-flex justify-content-star align-items-center gap-1 w-100">
+                <input
+                  type="checkbox"
+                  id="daily-wear"
+                  checked={isDailyWearChecked}
+                  onChange={handleIsDailyWearChecked}
+                ></input>
+                <label for="daily-wear">Daily Wear</label>
+              </div>
+            </div>
+          )}
         </li>
       </ul>
     </div>
