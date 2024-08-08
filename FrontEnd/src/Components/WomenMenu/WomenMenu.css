@@ -1,0 +1,12 @@
+.women-menu{
+    height: 50vh;
+    /* width: 100vw; */
+    grid-column-start: 1;
+    grid-column-end: 5;
+}
+
+.women-menu ul{
+    list-style-type: none;
+    margin: 0%;
+    padding: 0%;
+}

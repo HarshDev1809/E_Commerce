@@ -1,0 +1,9 @@
+.search-bar{
+    height: 70%;
+    width: 60%;
+}
+
+.search-bar > input {
+    all : unset;
+    padding: 5px;
+}

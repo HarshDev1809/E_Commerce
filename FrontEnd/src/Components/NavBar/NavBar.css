@@ -1,4 +1,4 @@
-.nav-bar{
+.upper-section{
     display: grid;
     grid-template-rows: repeat(1, 1fr);
     grid-template-columns: 2fr 5fr 3fr;
@@ -13,4 +13,10 @@
 
 .dropdown > ul{
     margin-top: 2.3vh !important;
+}
+
+.nav-bar .lower-section{
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: repeat(4, 1fr);
 }

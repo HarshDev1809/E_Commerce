@@ -1,0 +1,70 @@
+.side-bar{
+    width: 25vw;
+}
+
+.side-bar .price-filter{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 0.5fr;
+}
+
+.side-bar ul{
+    list-style-type: none;
+    margin: 0px;
+    padding: 0px;
+}
+
+.side-bar .price-filter .item-3{
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+
+.side-bar input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.side-bar .price-input{
+    border: none;
+    width: 90%;
+}
+
+.side-bar .side-bar-button{
+    height: 6vh;
+    border: none;
+    background-color: white;
+    /* grid-column-start: 1;
+    grid-column-end: 3 */
+    /* grid-area: 1 / 1 / 2 / 3;/- */
+}
+
+.side-bar .side-bar-button-div{
+    display: grid;
+    grid-template-columns: 9fr 1fr;
+    grid-template-rows: 1fr;
+    align-content: center; /* Center entire grid content vertically */
+    justify-content: center; 
+}
+
+.side-bar .arrow-icon{
+    grid-area: 1 / 2 / 2/ 2;
+    align-content: center; /* Center entire grid content vertically */
+    justify-content: center; 
+}
+
+/* In your SideBar.css file */
+
+.arrow-icon {
+    transition: transform 0.3s ease; /* Smooth transition */
+  }
+  
+  .rotated {
+    transform: rotate(180deg); /* Rotate the arrow upside down */
+  }
+  

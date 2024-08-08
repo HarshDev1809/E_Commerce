@@ -5,8 +5,12 @@ import ShoppingCartRoundedIcon from "@mui/icons-material/ShoppingCartRounded";
 import Drawer from "@mui/material/Drawer";
 import Badge from "@mui/material/Badge";
 import { Anchor } from "@mui/icons-material";
-import ShoppingBag from "../ShoppingBag/ShoppingBag";
+import ShoppingBag from "../../app/features/ShoppingBag/ShoppingBag";
 import FavoriteBag from "../FavoriteBag/FavoriteBag";
+import SearchBar from "../../app/features/SearchBar/SearchBar";
+import WomenMenu from "../WomenMenu/WomenMenu";
+import MenMenu from "../MenMenu/MenMenu";
+import ChildrenMenu from "../ChildrenMenu/ChildrenMenu";
 
 function NavBar(props) {
   const [show, setShow] = useState(props.show);
@@ -14,14 +18,36 @@ function NavBar(props) {
   const [cartQuantity, setCartQuantity] = useState(0);
   const [openCart, setOpenCart] = useState(false);
   const [openFavorite, setOpenFavorite] = useState(false);
+  //
+  const [womenMenu, setWomenMenu] = useState(false);
+  const [mensMenu, setMensMenu] = useState(false);
+  const [childsMenu, setChildsMenu] = useState(false);
+  //
+
+  const [onMenu, setOnMenu] = useState(false);
+
+  const [activeMenu, setActiveMenu] = useState(null);
+
+  const toggleOnMenu = (newState) => {
+    console.log(newState);
+    setOnMenu(newState);
+  };
+
+  const handleActiveMenu = (menu) => {
+    setActiveMenu(menu);
+  };
+
+  const menuMouseLeave = () => {
+    // setActiveMenu(null);
+  };
 
   const toggleCartDrawer = (newOpen) => () => {
     setOpenCart(newOpen);
   };
 
-  const toggleFavoriteDrawer = (newOpen) => () =>{
+  const toggleFavoriteDrawer = (newOpen) => () => {
     setOpenFavorite(newOpen);
-  }
+  };
 
   const showSignedIn = () => {
     return (
@@ -74,21 +100,114 @@ function NavBar(props) {
     );
   };
 
+  const toggleWomenMenu = (state) => {
+    setWomenMenu(state);
+  };
+
+  const onWomen = () => {
+    console.log("on women");
+  };
+
+  const showMenu = () => {
+    if (onMenu) {
+      switch (activeMenu) {
+        case "women":
+          return <WomenMenu />;
+        case "men":
+          return <MenMenu />;
+        case "children":
+          return <ChildrenMenu />;
+        case "all":
+          return;
+      }
+    }
+    // if(activeMenu === "women" && onMenu){
+    //   return <WomenMenu />
+    // }
+  };
+
   return (
     <nav className="nav-bar p-1">
-      <div>
-        <h1>Gehna</h1>
+      <div className="upper-section border">
+        <div>
+          <h1>Gehna</h1>
+        </div>
+        <div className="search-div d-flex justify-content-center align-items-center">
+          <SearchBar />
+        </div>
+        {show ? showSignedIn() : showUnsignedIn()}
+        <Drawer
+          open={openCart}
+          onClose={toggleCartDrawer(false)}
+          anchor={"right"}
+        >
+          <ShoppingBag onClose={toggleCartDrawer} />
+        </Drawer>
+        <Drawer
+          open={openFavorite}
+          onClose={toggleFavoriteDrawer(false)}
+          anchor={"right"}
+        >
+          <FavoriteBag />
+        </Drawer>
       </div>
-      <div>
-        <h1>Search bar</h1>
+      <div
+        className="lower-section border"
+        onMouseEnter={() => {
+          toggleOnMenu(true);
+        }}
+        onMouseLeave={() => {
+          toggleOnMenu(false);
+        }}
+      >
+        <div className="fs-3 text-center">
+          <button
+            type="button"
+            onMouseEnter={() => {
+              handleActiveMenu("all");
+            }}
+          >
+            All Jewellary
+          </button>
+        </div>
+        <div className="fs-3 text-center border">
+          <button
+            type="button"
+            className="w-100"
+            onMouseEnter={() => {
+              handleActiveMenu("women");
+            }}
+            // onMouseLeave={menuMouseLeave}
+          >
+            Women's
+          </button>
+        </div>
+        <div
+          className="fs-3 text-center"
+          onMouseEnter={() => {
+            handleActiveMenu("men");
+          }}
+        >
+          <button type="button">Men's</button>
+        </div>
+        <div className="fs-3 text-center">
+          <button
+            type="button"
+            onMouseEnter={() => {
+              handleActiveMenu("children");
+            }}
+          >
+            Children's
+          </button>
+        </div>
+        {showMenu()}
+
+        {/* <div className="lower-section-menu">
+      </div> */}
       </div>
-      {show ? showSignedIn() : showUnsignedIn()}
-      <Drawer open={openCart} onClose={toggleCartDrawer(false)} anchor={'right'}>
-        <ShoppingBag onClose={toggleCartDrawer}/>
-      </Drawer>
-      <Drawer open={openFavorite} onClose={toggleFavoriteDrawer(false)} anchor={'right'}>
-        <FavoriteBag />
-      </Drawer>
+      {/* <div className="lower-section-menu">
+        {showMenu()}
+      </div> */}
     </nav>
   );
 }
