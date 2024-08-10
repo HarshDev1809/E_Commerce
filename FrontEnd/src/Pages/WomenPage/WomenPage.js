@@ -1,8 +1,13 @@
 import NavBar from "../../Components/NavBar/NavBar";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import "./WomenPage.css";
 import { useEffect, useState } from "react";
 import SideBar from "../../app/features/SideBar/SideBar";
+import SortMenu from "../../app/features/SortMenu/SortMenu";
+import { useDispatch, useSelector } from "react-redux";
+import { getItems } from "../../app/features/Items/ItemsSlice";
+import { CircularProgress } from "@mui/material";
+import Item from "../../Components/Item/Item";
 
 function WomenPage() {
   // const location = useLocation();
@@ -13,6 +18,14 @@ function WomenPage() {
   // const [material, setMaterials] = useState([]);
   // const [category, setCategory] = useState([]);
   // const [occasion, setOccasion] = useState([]);
+
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const items = useSelector((state)=> state.items.items)
+  const status = useSelector((state)=>state.items.status);
+  const error = useSelector((state)=>state.items.error)
+
+  const [showSideBar, setShowSideBar] = useState(true);
 
   const location = useLocation();
 
@@ -74,6 +87,10 @@ function WomenPage() {
       );
   };
 
+  const toggleSideBar = ()=>{
+    setShowSideBar(!showSideBar);
+  }
+
   // useEffect(() => {
   //   const query = useQuery();
   //   setMaterials(query.getAll("material"));
@@ -86,11 +103,30 @@ function WomenPage() {
     setMaterials(query.getAll("material"));
     setCategory(query.getAll("category"));
     setOccasion(query.getAll("occasion"));
-  }, [location]);
 
+    if(status === 'idle'){
+      dispatch(getItems());
+    }
+  }, [location,status]);
 
-  // useEffect(()=>{
-  // },[query])
+  const displayData = (status)=>{
+    switch(status){
+      case "loading":
+        return <CircularProgress color="secondary" />;
+      case "succeeded":
+        return showItems();
+        case "failed":
+          return <h1>Failed</h1>
+    } 
+  }
+
+  const showItems = () =>{
+    return <div className="item-div px-3 border">
+      {items.map((item)=>{
+        return <Item item={item}/>
+      })}
+    </div>
+  }
 
   return (
     <div className="women-page">
@@ -115,14 +151,19 @@ function WomenPage() {
           {occasion.length > 0 && addOccasion()}
         </ol>
       </nav>
-      <div className="lower-page-section">
-        <div className="side-bar-section border">
+      <div className="lower-page-section d-flex">
+      {showSideBar && 
           <SideBar />
-        </div>
-        <div className="main-section">
-          <div className="button-section">
-            <button type="button">Filter</button>
+        //   <div className="side-bar-section border">
+        // </div>}
+      }
+        
+        <div className="main-section border">
+          <div className="button-section border d-flex justify-content-between px-4 py-3">
+            <button type="button" onClick={toggleSideBar}>Filter</button>
+            <SortMenu />
           </div>
+          {displayData(status)}
         </div>
       </div>
     </div>

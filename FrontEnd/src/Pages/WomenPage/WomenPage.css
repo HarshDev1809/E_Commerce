@@ -7,3 +7,14 @@
 .women-page ol {
     gap: 5px
 }
+
+.women-page .main-section{
+    width: 75vw;
+}
+
+.women-page .item-div{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-gap: 15px
+}
