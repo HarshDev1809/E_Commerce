@@ -18,3 +18,32 @@
     grid-template-rows: repeat(2, 1fr);
     grid-gap: 15px
 }
+
+.women-page .filter-btn{
+    display: none;
+}
+
+@media screen and (max-width : 768px) {
+    .women-page .filter-btn{
+        display: block;
+        width: 50%;
+    }
+
+    .women-page .button-section{
+        justify-content: space-between !important;
+        gap: 15px
+    }
+
+    .women-page .main-section{
+        width: 100%;
+    }
+
+    body.modal-open {
+        overflow: hidden;
+    }
+
+    .women-page .item-div{
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}

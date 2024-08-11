@@ -1,0 +1,5 @@
+@media screen and (max-width : 768px){
+    .sort-menu{
+        width: 50% !important;
+    }
+}

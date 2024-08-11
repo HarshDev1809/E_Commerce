@@ -19,6 +19,8 @@ function WomenPage() {
   // const [category, setCategory] = useState([]);
   // const [occasion, setOccasion] = useState([]);
 
+  const [isMobile, setIsMobile] = useState(window.matchMedia('(max-width: 768px)').matches);
+
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const items = useSelector((state)=> state.items.items)
@@ -89,6 +91,11 @@ function WomenPage() {
 
   const toggleSideBar = ()=>{
     setShowSideBar(!showSideBar);
+    if (!showSideBar) {
+      document.body.classList.add('modal-open');
+  } else {
+      document.body.classList.remove('modal-open');
+  }
   }
 
   // useEffect(() => {
@@ -107,6 +114,24 @@ function WomenPage() {
     if(status === 'idle'){
       dispatch(getItems());
     }
+
+    const mediaQuery = window.matchMedia('(max-width: 768px)');
+
+    const handleMediaChange = () => {
+      setIsMobile(mediaQuery.matches);
+      // Hide element when the screen is below 768px
+      if (mediaQuery.matches) {
+        setShowSideBar(false);
+      }
+    };
+
+    mediaQuery.addListener(handleMediaChange);
+
+    // Cleanup listener on unmount
+    return () => {
+      mediaQuery.removeListener(handleMediaChange);
+      document.body.classList.remove('modal-open');
+    };
   }, [location,status]);
 
   const displayData = (status)=>{
@@ -146,21 +171,20 @@ function WomenPage() {
               Woman
             </Link>
           </li>
-          {category.length > 0&& addCategory()}
+          {category.length >0 && addCategory()}
           {material.length >0  && addMaterial()}
           {occasion.length > 0 && addOccasion()}
         </ol>
       </nav>
       <div className="lower-page-section d-flex">
-      {showSideBar && 
-          <SideBar />
+      { (!isMobile || showSideBar) && 
+          <SideBar setShowSideBar = {setShowSideBar}/>
         //   <div className="side-bar-section border">
         // </div>}
-      }
-        
-        <div className="main-section border">
-          <div className="button-section border d-flex justify-content-between px-4 py-3">
-            <button type="button" onClick={toggleSideBar}>Filter</button>
+      } 
+        <div className="main-section border border-primary">
+          <div className="button-section border d-flex justify-content-end px-4 py-3">
+            <button type="button" onClick={toggleSideBar} className="filter-btn">Filter</button>
             <SortMenu />
           </div>
           {displayData(status)}

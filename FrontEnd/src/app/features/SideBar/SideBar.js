@@ -1,11 +1,11 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./SideBar.css";
 import Slider from "@mui/material/Slider";
 import TextField from "@mui/material/TextField";
 import InputAdornment from "@mui/material/InputAdornment";
 import { Label, LabelRounded } from "@mui/icons-material";
 
-function SideBar() {
+function SideBar({setShowSideBar}) {
   const [showPriceFilter, setShowPriceFilter] = useState(false);
   const [minPrice, setMinPrice] = useState();
   const [maxPrice, setMaxPrice] = useState();
@@ -144,8 +144,20 @@ function SideBar() {
     setShowOccasionFilter(!showOccasionFilter)
   }
 
+  useEffect(()=>{
+
+    return ()=>{
+      document.body.classList.remove('modal-open');
+    }
+  })
+
   return (
-    <div className="side-bar p-3">
+    <div className="side-bar p-3 border-danger border">
+      <div className="border justify-content-end close-btn">
+        <button type="button"><span class="material-symbols-rounded" onClick={()=>{setShowSideBar(false)}}>
+close
+</span></button>
+      </div>
       <ul>
         <li className="border-bottom">
           <button

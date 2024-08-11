@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "./SortMenu.css"
 
 function SortMenu() {
 
