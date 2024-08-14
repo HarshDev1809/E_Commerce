@@ -8,6 +8,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getItems } from "../../app/features/Items/ItemsSlice";
 import { CircularProgress } from "@mui/material";
 import Item from "../../Components/Item/Item";
+import Footer from "../../Components/Footer/Footer";
 
 function WomenPage() {
   // const location = useLocation();
@@ -190,6 +191,9 @@ function WomenPage() {
           {displayData(status)}
         </div>
       </div>
+      <footer className="w-100 bg-black text-white">
+        <Footer />
+      </footer>
     </div>
   );
 }

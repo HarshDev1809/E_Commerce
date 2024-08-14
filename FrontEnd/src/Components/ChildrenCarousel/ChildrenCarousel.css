@@ -1,0 +1,10 @@
+.children-carousel{
+    width: 70vw;
+    height: 85vh;
+}
+
+.carousel-images{
+    width: 70vw;
+    height: 85vh;
+    object-fit: contain;
+}

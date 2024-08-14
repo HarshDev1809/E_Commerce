@@ -127,7 +127,7 @@ function NavBar(props) {
   };
 
   return (
-    <nav className="nav-bar p-1 position-sticky top-0 start-0 z-3">
+    <nav className="nav-bar p-1 position-sticky top-0 start-0 z-3 bg-white">
       <div className="upper-section border">
         <div>
           <h1>Gehna</h1>

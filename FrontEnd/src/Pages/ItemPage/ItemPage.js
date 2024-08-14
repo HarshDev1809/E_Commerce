@@ -3,6 +3,7 @@ import NavBar from "../../Components/NavBar/NavBar";
 import { Rating } from "@mui/material";
 import { useState,useEffect} from "react";
 import "./ItemPage.css";
+import Footer from "../../Components/Footer/Footer";
 
 function ItemPage() {
   const { id } = useParams();
@@ -159,6 +160,9 @@ function ItemPage() {
           </div>
         </div>
       </div>
+      <footer className="w-100 bg-black text-white">
+        <Footer />
+      </footer>
     </div>
   );
 }

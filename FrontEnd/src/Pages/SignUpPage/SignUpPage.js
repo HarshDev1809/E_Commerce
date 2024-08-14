@@ -2,6 +2,7 @@ import "./SignUpPage.css";
 import { useState } from "react";
 import Alert from '@mui/material/Alert';
 import Collapse from '@mui/material/Collapse';
+import Footer from "../../Components/Footer/Footer";
 
 function SignUpPage() {
   const [firstName, setFirstName] = useState();
@@ -161,6 +162,9 @@ function SignUpPage() {
         </div>
         </form>
       </div>
+      <footer className="w-100 bg-black text-white">
+        <Footer />
+      </footer>
     </div>
   );
 }
