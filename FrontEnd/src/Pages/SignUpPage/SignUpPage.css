@@ -1,0 +1,18 @@
+.sign-up-page .nav-bar{
+    display: none;
+}
+
+.sign-up-page .sign-up-panel{
+    height: 100%;
+}
+
+@media screen and (max-width:768px){
+    .sign-up-page .nav-bar{
+        display: block;
+        height: 8vh;
+    }
+
+    .sign-up-page .sign-up-panel{
+        height: 92%;
+    }
+}
