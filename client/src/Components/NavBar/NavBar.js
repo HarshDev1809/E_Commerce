@@ -11,6 +11,7 @@ import SearchBar from "../../app/features/SearchBar/SearchBar";
 import WomenMenu from "../WomenMenu/WomenMenu";
 import MenMenu from "../MenMenu/MenMenu";
 import ChildrenMenu from "../ChildrenMenu/ChildrenMenu";
+import CommonMenu from "../CommonMenu/CommonMenu";
 
 function NavBar(props) {
   const [show, setShow] = useState(props.show);
@@ -94,8 +95,9 @@ function NavBar(props) {
 
   const showUnsignedIn = () => {
     return (
-      <div>
-        <h1>.</h1>
+      <div className="unsigned-btns d-flex justify-content-end align-items-center gap-1 border border-danger">
+        <button type="button" className="border h-75 login-btn">Log in</button>
+        <button type="button" className="border h-75 login-btn">Sign up</button>
       </div>
     );
   };
@@ -118,7 +120,7 @@ function NavBar(props) {
         case "children":
           return <ChildrenMenu />;
         case "all":
-          return;
+          return <CommonMenu />;
       }
     }
     // if(activeMenu === "women" && onMenu){
@@ -126,13 +128,49 @@ function NavBar(props) {
     // }
   };
 
+  const handleAllBtnClick = ()=>{
+    if(onMenu && activeMenu === "all"){
+      setOnMenu(false)
+      return
+    }
+    setOnMenu(true);
+    setActiveMenu("all")
+  }
+
+  const handleWomenBtnClick = ()=>{
+    if(onMenu && activeMenu === "women"){
+      setOnMenu(false)
+      return
+    }
+    setOnMenu(true);
+    setActiveMenu("women")
+  }
+
+  const handleMenBtnClick = ()=>{
+    if(onMenu && activeMenu === "men"){
+      setOnMenu(false)
+      return
+    }
+    setOnMenu(true);
+    setActiveMenu("men")
+  }
+
+  const handleChildrenBtnClick = ()=>{
+    if(onMenu && activeMenu === "children"){
+      setOnMenu(false)
+      return
+    }
+    setOnMenu(true);
+    setActiveMenu("children")
+  }
+
   return (
     <nav className="nav-bar p-1 position-sticky top-0 start-0 z-3 bg-white">
       <div className="upper-section border">
-        <div>
-          <h1>Gehna</h1>
+        <div className="heading">
+          <h1>GEHNA</h1>
         </div>
-        <div className="search-div d-flex justify-content-center align-items-center">
+        <div className="search-div d-flex justify-content-center align-items-center border border-secondary">
           <SearchBar />
         </div>
         {show ? showSignedIn() : showUnsignedIn()}
@@ -160,42 +198,46 @@ function NavBar(props) {
           toggleOnMenu(false);
         }}
       >
-        <div className="fs-3 text-center">
+        <div className="text-center menu-btn">
           <button
             type="button"
             onMouseEnter={() => {
               handleActiveMenu("all");
             }}
+            onClick={handleAllBtnClick}
           >
             All Jewellary
           </button>
-        </div>
-        <div className="fs-3 text-center border">
+        </div> 
+        <div className="text-center border menu-btn">
           <button
             type="button"
             className="w-100"
             onMouseEnter={() => {
               handleActiveMenu("women");
             }}
+            onClick={handleWomenBtnClick}
             // onMouseLeave={menuMouseLeave}
           >
             Women's
           </button>
         </div>
         <div
-          className="fs-3 text-center"
+          className="text-center menu-btn"
           onMouseEnter={() => {
             handleActiveMenu("men");
           }}
+          onClick={handleMenBtnClick}
         >
           <button type="button">Men's</button>
         </div>
-        <div className="fs-3 text-center">
+        <div className="text-center menu-btn">
           <button
             type="button"
             onMouseEnter={() => {
               handleActiveMenu("children");
             }}
+            onClick={handleChildrenBtnClick}
           >
             Children's
           </button>

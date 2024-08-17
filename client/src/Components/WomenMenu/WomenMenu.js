@@ -2,8 +2,8 @@ import "./WomenMenu.css"
 import { Link } from "react-router-dom";
 
 function WomenMenu(){
-    return <div className="border women-menu d-flex justify-content-center">
-        <div className="border w-25 p-1">
+    return <div className="women-menu d-flex justify-content-evenly">
+        <div className="div-1">
             <ul>
                 <li><Link to="/women" className="link">All Jewellary</Link></li>
                 <li><Link to="/women?category=ring" className="link">Rings</Link></li>
@@ -14,7 +14,7 @@ function WomenMenu(){
                 <li><Link to="/women?category=pendant" className="link">Pendant</Link></li>
             </ul>
         </div>
-        <div className="border w-25">
+        <div className="div-2">
             <h1>By Material</h1>
             <ul>
                 <li><Link to="/women?material=gold" className="link">Gold</Link></li>
@@ -22,7 +22,7 @@ function WomenMenu(){
                 <li><Link to="/women?material=metal" className="link">Metal</Link></li>
             </ul>
         </div>
-        <div className="border w-25">
+        <div className="div-2">
             <h1>By occasion</h1>
             <ul>
                 <li><Link to="/women?occasion=wedding" className="link">Wedding</Link></li>

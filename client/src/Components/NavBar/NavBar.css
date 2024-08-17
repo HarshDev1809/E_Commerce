@@ -20,3 +20,41 @@
     grid-template-rows: 1fr;
     grid-template-columns: repeat(4, 1fr);
 }
+
+.unsigned-btns .login-btn{
+    width: 25%;
+}
+
+.lower-section .menu-btn{
+    font-size: 1.7rem;
+}
+
+@media screen and (max-width:600px) {
+    .nav-bar .heading > h1{
+        font-size: 1.3rem;
+        text-align: center;
+    }
+
+    .nav-bar .heading{
+        display: flex;
+        justify-content: start;
+        align-items: center;
+    }
+
+    .unsigned-btns .login-btn{
+        width: 50%;
+        font-size: 0.8rem;
+    }
+
+    .unsigned-btns{
+        padding: 0px 2px;
+    }
+
+    .upper-section{
+        padding-right: 0px;
+    }
+
+    .nav-bar .menu-btn{
+        font-size: 1rem;
+    }
+}

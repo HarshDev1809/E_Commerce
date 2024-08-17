@@ -8,7 +8,7 @@ import WomenCarousel from "../../Components/WomenCarousel/WomenCarousel";
 function HomePage() {
   return (
     <div className="home-page">
-      <NavBar show={true} />
+      <NavBar show={false} />
       <div className="lower-section">
       <div className="general-section d-flex">
           <div className="vw-30 bg-black text-light d-flex justify-content-center flex-column align-items-center">

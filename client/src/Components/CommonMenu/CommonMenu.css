@@ -1,29 +1,33 @@
-.women-menu{
+.common-menu{
     height: 35vh;
     /* width: 100vw; */
     grid-column-start: 1;
     grid-column-end: 5;
 }
 
-.women-menu ul{
+.common-menu ul{
     list-style-type: none;
     margin: 0%;
     padding: 0%;
 }
 
-.women-menu >  div{
+.common-menu >  div{
     width: 20%;
     padding: 6px;
 }
 
-.women-menu .div-1 li{
+.common-menu .div-1{
+    width: 100%;
+}
+
+.common-menu .div-1 li{
     font-size: 1.2rem;
 }
 
-.women-menu .div-2 ul{
+.common-menu .div-2 ul{
     padding-left: 10px;
 }
 
-.women-menu .div-2 link{
+.common-menu .div-2 link{
     font-size: 0.1rem;
 }

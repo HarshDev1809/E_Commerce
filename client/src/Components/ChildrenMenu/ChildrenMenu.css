@@ -1,0 +1,37 @@
+.children-menu{
+    height: 35vh;
+    /* width: 100vw; */
+    grid-column-start: 1;
+    grid-column-end: 5;
+
+}
+
+.children-menu ul{
+    list-style-type: none;
+    margin: 0%;
+    padding: 0%;
+    align-items: center;
+}
+
+.children-menu >  div{
+    width: 20%;
+    padding: 6px;
+}
+
+.children-menu .div-1 li{
+    font-size: 1.2rem;
+}
+
+.children-menu .div-2 ul{
+    padding-left: 10px;
+}
+
+.children-menu .div-2 link{
+    font-size: 0.1rem;
+}
+
+@media screen and (max-width:600px) {
+    .children-menu .div-1 li{
+        font-size: 5rem !important;
+    }
+}

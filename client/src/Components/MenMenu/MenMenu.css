@@ -1,29 +1,29 @@
-.women-menu{
+.men-menu{
     height: 35vh;
     /* width: 100vw; */
     grid-column-start: 1;
     grid-column-end: 5;
 }
 
-.women-menu ul{
+.men-menu ul{
     list-style-type: none;
     margin: 0%;
     padding: 0%;
 }
 
-.women-menu >  div{
+.men-menu >  div{
     width: 20%;
     padding: 6px;
 }
 
-.women-menu .div-1 li{
+.men-menu .div-1 li{
     font-size: 1.2rem;
 }
 
-.women-menu .div-2 ul{
+.men-menu .div-2 ul{
     padding-left: 10px;
 }
 
-.women-menu .div-2 link{
+.men-menu .div-2 link{
     font-size: 0.1rem;
 }
