@@ -31,7 +31,7 @@
     grid-area: 1 / 3 / 2 /4;
 }
 
-.item-page .page-section{
+.item-page .page-upper-section{
     display: flex;
     flex-direction: row;
 }
@@ -39,7 +39,7 @@
 /* ---------------- */
 
 @media screen and (max-width: 768px) {
-    .item-page .page-section{
+    .item-page .page-upper-section{
         flex-direction: column !important;
     }
 

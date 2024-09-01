@@ -12,6 +12,7 @@ import WomenMenu from "../WomenMenu/WomenMenu";
 import MenMenu from "../MenMenu/MenMenu";
 import ChildrenMenu from "../ChildrenMenu/ChildrenMenu";
 import CommonMenu from "../CommonMenu/CommonMenu";
+import { useNavigate } from "react-router-dom";
 
 function NavBar(props) {
   const [show, setShow] = useState(props.show);
@@ -28,6 +29,7 @@ function NavBar(props) {
   const [onMenu, setOnMenu] = useState(false);
 
   const [activeMenu, setActiveMenu] = useState(null);
+  const navigate = useNavigate();
 
   const toggleOnMenu = (newState) => {
     console.log(newState);
@@ -93,11 +95,19 @@ function NavBar(props) {
     );
   };
 
+  const goToLogInPage = ()=>{
+    navigate("/signin");
+  }
+
+  const goToSignUpPage = ()=>{
+    navigate("/signup");
+  }
+
   const showUnsignedIn = () => {
     return (
       <div className="unsigned-btns d-flex justify-content-end align-items-center gap-1 border border-danger">
-        <button type="button" className="border h-75 login-btn">Log in</button>
-        <button type="button" className="border h-75 login-btn">Sign up</button>
+        <button type="button" className="border h-75 login-btn" onClick = {goToLogInPage}>Log in</button>
+        <button type="button" className="border h-75 login-btn" onClick = {goToSignUpPage}>Sign up</button>
       </div>
     );
   };
